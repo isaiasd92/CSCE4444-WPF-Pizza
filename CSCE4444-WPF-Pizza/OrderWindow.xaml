@@ -1,0 +1,258 @@
+﻿<Window x:Class="PizzaBlendGrid.OrderWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PizzaBlendGrid"
+        mc:Ignorable="d"
+        Title="OrderWindow" 
+        Height="1080" Width="1920"
+        WindowState="Maximized"
+        WindowStyle="None">
+
+    <!-- RESOURCES -->
+    <Window.Resources>
+        <Style TargetType="Button" x:Key="FlatButtonStyle">
+            <Setter Property="Background" Value="Firebrick"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Height" Value="100"/>
+            <Setter Property="Width" Value="192"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border BorderThickness="0"
+                        Background="{TemplateBinding Background}"
+                        CornerRadius="25">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <!-- END RESOURCES -->
+
+    <!--#region -->
+    <!-- outermost grid -->
+    <Grid>
+
+
+        <!-- ++++++++++ GRID DEFINITIONS ++++++++++ -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"/>
+            <!-- top bar row definition -->
+            <RowDefinition Height="95*"/>
+            <!-- outer body row definiton -->
+        </Grid.RowDefinitions>
+        <!-- ++++++++++ END GRID DEFINITIONS ++++++++++ -->
+
+        <!-- top bar timeclock -->
+        <Grid Grid.Row="0">
+            <!-- //put clock and metrics here -->
+        </Grid>
+
+        <!-- main body wrapper-->
+        <Grid Grid.Row="1">
+
+            <!-- ++++++++++ GRID DEFINITIONS ++++++++++-->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="25*"/>
+                <!-- side tally screen definition -->
+                <ColumnDefinition Width="75*"/>
+                <!-- tabControl wrapper -->
+            </Grid.ColumnDefinitions>
+            <!-- ++++++++++ END GRID DEFINITIONS ++++++++++-->
+
+            <!-- side tally wrapper -->
+            <Grid Grid.Column="0">
+                <!-- put side tally order screen here -->
+
+                <Button Style="{StaticResource FlatButtonStyle}" x:Name="roundedButton01" Margin="89,99.2,197,0" VerticalAlignment="Top" d:LayoutOverrides="Height"/>
+
+
+            </Grid>
+
+            <!-- main tabcontrol wrapper -->
+            <Grid Grid.Column="1" Background="Green">
+                <Button x:Name="button1" Content="Button" Height="176" Width="200" HorizontalAlignment="Right" VerticalAlignment="Top" />
+                <TabControl x:Name="tabControl" TabStripPlacement="Right">
+                    <!-- tab 1 -->
+                    <TabItem Header="TabItem" Height="110" Width="200" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,176,0,-176">
+
+                        <Grid HorizontalAlignment="Stretch" Background="Orange">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                        </Grid>
+                    </TabItem>
+                    <!-- tab 2 -->
+                    <TabItem Header="TabItem" Height="110" Width="200" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,176,0,-176">
+
+                        <Grid HorizontalAlignment="Stretch" Background="Orange">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                        </Grid>
+                    </TabItem>
+                    <!-- tab 3 -->
+                    <TabItem Header="TabItem" Height="110" Width="200" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,176,0,-176">
+
+                        <Grid HorizontalAlignment="Stretch" Background="Orange">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TabControl x:Name="innerTabControl" Grid.Column="0" TabStripPlacement="Bottom">
+                                <TabItem Header="//innerTab" Height="100" Width="200">
+                                    <Grid Background="DarkGray">
+                                        <!-- grid baking -->
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="24*"/>
+                                            <RowDefinition Height="5*"/>
+                                            <RowDefinition Height="21*"/>
+                                            <RowDefinition Height="5*"/>
+                                            <RowDefinition Height="21*"/>
+                                            <RowDefinition Height="5*"/>
+                                            <RowDefinition Height="80*"/>
+                                        </Grid.RowDefinitions>
+
+                                        <!-- mmmmmm grids -->
+                                        <Grid Grid.Row="0">
+                                            <StackPanel Margin="0,0,0,0" Orientation="Horizontal" HorizontalAlignment="Right">
+                                                <Button Style="{StaticResource FlatButtonStyle}" x:Name="addPizzaButton" Content="Button" Height="100" Width="192" Margin="10,10,0,0" />
+
+
+                                                <Button Style="{StaticResource FlatButtonStyle}" x:Name="qtyPizzaButton" Content="Button" Height="100" Width="192" Margin="10,10,0,0"                Background="Green" Click="Show_Click"/>
+
+                                                <Button Style="{StaticResource FlatButtonStyle}" x:Name="deletePizzaButton"  Content="Button" Height="100" Width="192" Margin="10,10,0,0"/>
+                                            </StackPanel>
+                                        </Grid>
+                                        <Grid Grid.Row="1" Background="Tan">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="268*"/>
+                                                <ColumnDefinition Width="37*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label x:Name="sizeLabel" Content="Size" Grid.ColumnSpan="2"/>
+                                        </Grid>
+                                        <Grid Grid.Row="2">
+                                            <WrapPanel>
+                                                <Button Style="{StaticResource FlatButtonStyle}" x:Name="sizeButton01" Content="Button" Height="100" Width="192" Margin="10,10,0,0"/>
+
+                                                <Button Style="{StaticResource FlatButtonStyle}" x:Name="sizeButton02" Content="Button" Height="100" Width="192" Margin="10,10,0,0"/>
+                                                <Button Style="{StaticResource FlatButtonStyle}" x:Name="sizeButton03" Content="Button" Height="100" Width="192" Margin="10,10,0,0"/>
+                                                <Button Style="{StaticResource FlatButtonStyle}" x:Name="sizeButton04" Content="Button" Height="100" Width="192" Margin="10,10,0,0"/>
+                                            </WrapPanel>
+                                        </Grid>
+                                        <Grid Grid.Row="3" Background="Tan">
+                                            <Label x:Name="crustLabel" Content="Crust"/>
+                                        </Grid>
+                                        <Grid Grid.Row="4">
+                                            <WrapPanel>
+                                                <Button Style="{StaticResource FlatButtonStyle}" x:Name="crustButton01" Content="Button" Height="100" Width="192" Margin="10,10,0,0"/>
+                                                <Button Style="{StaticResource FlatButtonStyle}" x:Name="crustButton02" Content="Button" Height="100" Width="192" Margin="10,10,0,0"/>
+                                                <Button Style="{StaticResource FlatButtonStyle}" x:Name="crustButton03" Content="Button" Height="100" Width="192" Margin="10,10,0,0"/>
+                                                <Button Style="{StaticResource FlatButtonStyle}" x:Name="crustButton04" Content="Button" Height="100" Width="192" Margin="10,10,0,0"/>
+                                                <Button Style="{StaticResource FlatButtonStyle}" x:Name="crustButton05" Content="Button" Height="100" Width="192" Margin="10,10,0,0"/>
+                                            </WrapPanel>
+                                        </Grid>
+                                        <Grid Grid.Row="5" Background="Tan">
+                                            <Label x:Name="toppingsLabel" Content="Toppings"/>
+                                        </Grid>
+                                        <Grid Grid.Row="6">
+                                            <WrapPanel>
+                                                <Button Style="{StaticResource FlatButtonStyle}" x:Name="toppingsButton01" Content="Button" Height="100" Width="192" Margin="10,10,0,0"/>
+                                                <Button Style="{StaticResource FlatButtonStyle}" x:Name="toppingsButton02" Content="Button" Height="100" Width="192" Margin="10,10,0,0"/>
+                                                <Button Style="{StaticResource FlatButtonStyle}" x:Name="toppingsButton03" Content="Button" Height="100" Width="192" Margin="10,10,0,0"/>
+                                                <Button Style="{StaticResource FlatButtonStyle}" x:Name="toppingsButton04" Content="Button" Height="100" Width="192" Margin="10,10,0,0"/>
+                                                <Button Style="{StaticResource FlatButtonStyle}" x:Name="toppingsButton05" Content="Button" Height="100" Width="192" Margin="10,10,0,0" Visibility="Hidden"/>
+                                                <Button Style="{StaticResource FlatButtonStyle}" x:Name="toppingsButton06" Content="Button" Height="100" Width="192" Margin="10,10,0,0" Visibility="Hidden"/>
+                                                <Button Style="{StaticResource FlatButtonStyle}" x:Name="toppingsButton07" Content="Button" Height="100" Width="192" Margin="10,10,0,0"/>
+                                                <Button Style="{StaticResource FlatButtonStyle}" x:Name="toppingsButton08" Content="Button" Height="100" Width="192" Margin="10,10,0,0"/>
+                                                <Button Style="{StaticResource FlatButtonStyle}" x:Name="toppingsButton09" Content="Button" Height="100" Width="192" Margin="10,10,0,0"/>
+                                                <Button Style="{StaticResource FlatButtonStyle}" x:Name="toppingsButton10" Content="Button" Height="100" Width="192" Margin="10,10,0,0"/>
+                                                <Button Style="{StaticResource FlatButtonStyle}" x:Name="toppingsButton11" Content="Button" Height="100" Width="192" Margin="10,10,0,0"/>
+                                                <Button Style="{StaticResource FlatButtonStyle}" x:Name="toppingsButton12" Content="Button" Height="100" Width="192" Margin="10,10,0,0"/>
+                                                <Button Style="{StaticResource FlatButtonStyle}" x:Name="toppingsButton13" Content="Button" Height="100" Width="192" Margin="10,10,0,0"/>
+                                                <Button Style="{StaticResource FlatButtonStyle}" x:Name="toppingsButton14" Content="Button" Height="100" Width="192" Margin="10,10,0,0"/>
+                                                <Button Style="{StaticResource FlatButtonStyle}" x:Name="toppingsButton15" Content="Button" Height="100" Width="192" Margin="10,10,0,0"/>
+                                                <Button Style="{StaticResource FlatButtonStyle}" x:Name="toppingsButton16" Content="Button" Height="100" Width="192" Margin="10,10,0,0"/>
+                                                <Button Style="{StaticResource FlatButtonStyle}" x:Name="toppingsButton17" Content="Button" Height="100" Width="192" Margin="10,10,0,0"/>
+                                                <Button Style="{StaticResource FlatButtonStyle}" x:Name="toppingsButton18" Content="Button" Height="100" Width="192" Margin="10,10,0,0"/>
+                                                <Button Style="{StaticResource FlatButtonStyle}" x:Name="toppingsButton19" Content="Button" Height="100" Width="192" Margin="10,10,0,0"/>
+                                                <Button Style="{StaticResource FlatButtonStyle}" x:Name="toppingsButton20" Content="Button" Height="100" Width="192" Margin="10,10,0,0"/>
+                                                <Button Style="{StaticResource FlatButtonStyle}" x:Name="toppingsButton21" Content="Button" Height="100" Width="192" Margin="10,10,0,0"/>
+                                                <Button Style="{StaticResource FlatButtonStyle}" x:Name="toppingsButton22" Content="Button" Height="100" Width="192" Margin="10,10,0,0"/>
+                                                <Button Style="{StaticResource FlatButtonStyle}" x:Name="toppingsButton23" Content="Button" Height="100" Width="192" Margin="10,10,0,0"/>
+                                                <Button Style="{StaticResource FlatButtonStyle}" x:Name="toppingsButton24" Content="Button" Height="100" Width="192" Margin="10,10,0,0"/>
+                                            </WrapPanel>
+                                        </Grid>
+
+                                    </Grid>
+
+                                </TabItem>
+                                <TabItem Header="//innerTab" Height="100" Width="200">
+                                    <Grid Background="Blue"/>
+                                </TabItem>
+                                <TabItem Header="//innerTab" Height="100" Width="200">
+                                    <Grid Background="Blue"/>
+                                </TabItem>
+
+                            </TabControl>
+
+                        </Grid>
+                    </TabItem>
+                    <!-- tab 4 -->
+                    <TabItem Header="TabItem" Height="110" Width="200" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,176,0,-176">
+
+                        <Grid HorizontalAlignment="Stretch" Background="Orange">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                        </Grid>
+                    </TabItem>
+                    <!-- tab 5 -->
+                    <TabItem Header="TabItem" Height="110" Width="200" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,176,0,-176">
+
+                        <Grid HorizontalAlignment="Stretch" Background="Orange">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                        </Grid>
+                    </TabItem>
+                    <!-- tab 6 -->
+                    <TabItem Header="TabItem" Height="110" Width="200" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,176,0,-176">
+
+                        <Grid HorizontalAlignment="Stretch" Background="Orange">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                        </Grid>
+                    </TabItem>
+                </TabControl>
+                <Button x:Name="button" Content="Button" Height="176" Width="200" HorizontalAlignment="Right" VerticalAlignment="Bottom" />
+
+            </Grid>
+        </Grid>
+
+
+
+        <Popup Name="MyPopup" Placement="Center" Height="200" Width="200">
+
+            <StackPanel Background="PaleGreen">
+
+                <Label HorizontalAlignment="Center">Click to hide</Label>
+                <Button Click="Hide_Click" Margin="10">Hide</Button>
+
+            </StackPanel>
+        </Popup>
+
+        <!-- end bottom main screen wrapper for tabcontrol, sidebars, etc. -->
+    </Grid>
+    <!-- end outermost grid -->
+    <!--#endregion-->
+</Window>
