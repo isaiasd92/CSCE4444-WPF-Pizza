@@ -74,7 +74,6 @@
 
             <!-- main tabcontrol wrapper -->
             <Grid Grid.Column="1" Background="Green">
-                <Button x:Name="button1" Content="Button" Height="176" Width="200" HorizontalAlignment="Right" VerticalAlignment="Top" />
                 <TabControl x:Name="tabControl" TabStripPlacement="Right">
                     <!-- tab 1 -->
                     <TabItem Header="TabItem" Height="110" Width="200" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,176,0,-176">
@@ -234,7 +233,8 @@
                         </Grid>
                     </TabItem>
                 </TabControl>
-                <Button x:Name="button" Content="Button" Height="176" Width="200" HorizontalAlignment="Right" VerticalAlignment="Bottom" />
+                <Button x:Name="button1" Content="Button" Height="180" Width="205" HorizontalAlignment="Right" VerticalAlignment="Top" />
+                <Button x:Name="button" Content="Button" Height="190" Width="205" HorizontalAlignment="Right" VerticalAlignment="Bottom" />
 
             </Grid>
         </Grid>
