@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PizzaBlendGrid;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,13 @@ namespace CSCE4444_WPF_Pizza {
     public partial class MainWindow : Window {
         public MainWindow() {
             InitializeComponent();
+        }
+
+        private void linkToOrderWindow_Click(object sender, RoutedEventArgs e)
+        {
+            OrderWindow orderWindow = new OrderWindow();
+            orderWindow.Show();
+            this.Close(); 
         }
     }
 }
