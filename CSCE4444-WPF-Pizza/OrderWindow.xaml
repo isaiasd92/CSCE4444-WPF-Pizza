@@ -120,11 +120,14 @@
                                         <!-- mmmmmm grids -->
                                         <Grid Grid.Row="0">
                                             <StackPanel Margin="0,0,0,0" Orientation="Horizontal" HorizontalAlignment="Right">
-                                                <Button Style="{StaticResource FlatButtonStyle}" x:Name="addPizzaButton" Content="Button" Height="100" Width="192" Margin="10,10,0,0" />
+                                                <Button Style="{StaticResource FlatButtonStyle}" x:Name="addPizzaButton" Height="100" Width="192" Margin="10,10,0,0" />
+
+<!-- QTY CALC BUTTON -->
+                                                <Button Style="{StaticResource FlatButtonStyle}" x:Name="qtyPizzaButton" Height="100" Width="192" Margin="10,10,0,0"  Content="1" Background="Green" Click="Show_Click"/>
 
 
-                                                <Button Style="{StaticResource FlatButtonStyle}" x:Name="qtyPizzaButton" Content="Button" Height="100" Width="192" Margin="10,10,0,0"                Background="Green" Click="Show_Click"/>
 
+                                                <!-- END QTY CALC BUTTON -->
                                                 <Button Style="{StaticResource FlatButtonStyle}" x:Name="deletePizzaButton"  Content="Button" Height="100" Width="192" Margin="10,10,0,0"/>
                                             </StackPanel>
                                         </Grid>
@@ -241,14 +244,31 @@
 
 
 
-        <Popup Name="MyPopup" Placement="Center" Height="200" Width="200">
-
-            <StackPanel Background="PaleGreen">
-
-                <Label HorizontalAlignment="Center">Click to hide</Label>
-                <Button Click="Hide_Click" Margin="10">Hide</Button>
-
-            </StackPanel>
+        <Popup Name="MyPopup" Placement="MousePoint" Height="200" Width="200">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Button Click="Click_Digit1" Grid.Column="0" Grid.Row="0" Content="1"/>
+                <Button Click="Click_Digit4" Grid.Column="0" Grid.Row="1" Content="4"/>
+                <Button Click="Click_Digit7" Grid.Column="0" Grid.Row="2" Content="7"/>
+                <Button Click="Click_Digit0" Grid.Column="0" Grid.Row="3" Content="0"/>
+                <Button Click="Click_Digit2" Grid.Column="1" Grid.Row="0" Content="2"/>
+                <Button Click="Click_Digit5" Grid.Column="1" Grid.Row="1" Content="5"/>
+                <Button Click="Click_Digit8" Grid.Column="1" Grid.Row="2" Content="8"/>
+                <Button Click="Click_Digit3" Grid.Column="2" Grid.Row="0" Content="3"/>
+                <Button Click="Click_Digit6" Grid.Column="2" Grid.Row="1" Content="6"/>
+                <Button Click="Click_Digit9" Grid.Column="2" Grid.Row="2" Content="9"/>
+                <Button Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" Background="Green" Content="ENTER" Click="Hide_Click"/>
+            </Grid>
         </Popup>
 
         <!-- end bottom main screen wrapper for tabcontrol, sidebars, etc. -->
