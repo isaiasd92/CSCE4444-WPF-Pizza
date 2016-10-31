@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,6 +41,7 @@ namespace PizzaBlendGrid {
 
         private void Click_Digit1(object sender, RoutedEventArgs e) {
             QtyPizzaButton_update("1");
+            //Debug.WriteLine("Button1");
         }
 
         private void Click_Digit2(object sender, RoutedEventArgs e) {
@@ -73,9 +75,11 @@ namespace PizzaBlendGrid {
 
         private void QtyPizzaButton_update(string numinput) {
             if (!qtyPizzaButton_changed) {
-                qtyPizzaButton.Content = numinput;
-                qtyPizzaButton_display = numinput;
-                qtyPizzaButton_changed = true;
+                if (numinput != "0") {
+                    qtyPizzaButton.Content = numinput;
+                    qtyPizzaButton_display = numinput;
+                    qtyPizzaButton_changed = true;
+                } 
             } else {
                 qtyPizzaButton_display = qtyPizzaButton_display + numinput;
                 qtyPizzaButton.Content = qtyPizzaButton_display;
